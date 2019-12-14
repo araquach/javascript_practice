@@ -101,6 +101,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -12573,6 +12584,116 @@ __webpack_require__.r(__webpack_exports__);
         "total": 20118.45
       }]
     };
+  },
+  computed: {
+    bankJan: function bankJan() {
+      var initialVal = 0;
+      var all = this.bankData.filter(function (d) {
+        return new Date(d.trans_date).getMonth() === 0;
+      });
+      return all.reduce(function (acc, current) {
+        return acc + current.debit_amount;
+      }, initialVal);
+    },
+    bankFeb: function bankFeb() {
+      var initialVal = 0;
+      var all = this.bankData.filter(function (d) {
+        return new Date(d.trans_date).getMonth() === 11;
+      });
+      return all.reduce(function (acc, current) {
+        return acc + current.debit_amount;
+      }, initialVal);
+    },
+    bankMar: function bankMar() {
+      var initialVal = 0;
+      var all = this.bankData.filter(function (d) {
+        return new Date(d.trans_date).getMonth() === 2;
+      });
+      return all.reduce(function (acc, current) {
+        return acc + current.debit_amount;
+      }, initialVal);
+    },
+    bankApr: function bankApr() {
+      var initialVal = 0;
+      var all = this.bankData.filter(function (d) {
+        return new Date(d.trans_date).getMonth() === 3;
+      });
+      return all.reduce(function (acc, current) {
+        return acc + current.debit_amount;
+      }, initialVal);
+    },
+    bankMay: function bankMay() {
+      var initialVal = 0;
+      var all = this.bankData.filter(function (d) {
+        return new Date(d.trans_date).getMonth() === 4;
+      });
+      return all.reduce(function (acc, current) {
+        return acc + current.debit_amount;
+      }, initialVal);
+    },
+    bankJun: function bankJun() {
+      var initialVal = 0;
+      var all = this.bankData.filter(function (d) {
+        return new Date(d.trans_date).getMonth() === 5;
+      });
+      return all.reduce(function (acc, current) {
+        return acc + current.debit_amount;
+      }, initialVal);
+    },
+    bankJul: function bankJul() {
+      var initialVal = 0;
+      var all = this.bankData.filter(function (d) {
+        return new Date(d.trans_date).getMonth() === 6;
+      });
+      return all.reduce(function (acc, current) {
+        return acc + current.debit_amount;
+      }, initialVal);
+    },
+    bankAug: function bankAug() {
+      var initialVal = 0;
+      var all = this.bankData.filter(function (d) {
+        return new Date(d.trans_date).getMonth() === 7;
+      });
+      return all.reduce(function (acc, current) {
+        return acc + current.debit_amount;
+      }, initialVal);
+    },
+    bankSep: function bankSep() {
+      var initialVal = 0;
+      var all = this.bankData.filter(function (d) {
+        return new Date(d.trans_date).getMonth() === 8;
+      });
+      return all.reduce(function (acc, current) {
+        return acc + current.debit_amount;
+      }, initialVal);
+    },
+    bankOct: function bankOct() {
+      var initialVal = 0;
+      var all = this.bankData.filter(function (d) {
+        return new Date(d.trans_date).getMonth() === 9;
+      });
+      return all.reduce(function (acc, current) {
+        return acc + current.debit_amount;
+      }, initialVal);
+    },
+    bankNov: function bankNov() {
+      var initialVal = 0;
+      var all = this.bankData.filter(function (d) {
+        return new Date(d.trans_date).getMonth() === 10;
+      });
+      return all.reduce(function (acc, current) {
+        return acc + current.debit_amount;
+      }, initialVal);
+    },
+    bankDec: function bankDec() {
+      var initialVal = 0;
+      var all = this.bankData.filter(function (d) {
+        return new Date(d.trans_date).getMonth() === 11;
+      });
+      return all.reduce(function (acc, current) {
+        return acc + current.debit_amount;
+      }, initialVal);
+    }
   }
 });
 
@@ -13061,9 +13182,52 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _c("table", [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("tr", [
+        _c("td", [_vm._v(_vm._s(_vm._f("toCurrency")(_vm.bankJan)))]),
+        _c("td", [_vm._v(_vm._s(_vm._f("toCurrency")(_vm.bankFeb)))]),
+        _c("td", [_vm._v(_vm._s(_vm._f("toCurrency")(_vm.bankMar)))]),
+        _vm._v(" "),
+        _c("td", [_vm._v(_vm._s(_vm._f("toCurrency")(_vm.bankApr)))]),
+        _c("td", [_vm._v(_vm._s(_vm._f("toCurrency")(_vm.bankMay)))]),
+        _c("td", [_vm._v(_vm._s(_vm._f("toCurrency")(_vm.bankJun)))]),
+        _vm._v(" "),
+        _c("td", [_vm._v(_vm._s(_vm._f("toCurrency")(_vm.bankJul)))]),
+        _c("td", [_vm._v(_vm._s(_vm._f("toCurrency")(_vm.bankAug)))]),
+        _c("td", [_vm._v(_vm._s(_vm._f("toCurrency")(_vm.bankSep)))]),
+        _vm._v(" "),
+        _c("td", [_vm._v(_vm._s(_vm._f("toCurrency")(_vm.bankOct)))]),
+        _c("td", [_vm._v(_vm._s(_vm._f("toCurrency")(_vm.bankNov)))]),
+        _c("td", [_vm._v(_vm._s(_vm._f("toCurrency")(_vm.bankDec)))])
+      ])
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_vm._v("Jan")]),
+      _c("th", [_vm._v("Feb")]),
+      _c("th", [_vm._v("Mar")]),
+      _c("th", [_vm._v("Apr")]),
+      _c("th", [_vm._v("May")]),
+      _c("th", [_vm._v("Jun")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Jul")]),
+      _c("th", [_vm._v("Aug")]),
+      _c("th", [_vm._v("Sep")]),
+      _c("th", [_vm._v("Oct")]),
+      _c("th", [_vm._v("Nov")]),
+      _c("th", [_vm._v("Dec")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -29972,6 +30136,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(__webpack_require__(/*! vue-moment */ "./node_modules/vue-moment/dist/vue-moment.js"));
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.filter("toCurrency", function (amount) {
+  return "£" + Number(amount).toLocaleString();
+});
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   render: function render(h) {
@@ -29999,8 +30166,8 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/adam-macbook/GoSites/practice/javascript_practice/src/app.js */"./src/app.js");
-module.exports = __webpack_require__(/*! /Users/adam-macbook/GoSites/practice/javascript_practice/src/app.scss */"./src/app.scss");
+__webpack_require__(/*! /Users/imac-work/GoSites/practice/javascript_practice/src/app.js */"./src/app.js");
+module.exports = __webpack_require__(/*! /Users/imac-work/GoSites/practice/javascript_practice/src/app.scss */"./src/app.scss");
 
 
 /***/ })

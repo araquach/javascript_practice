@@ -1,0 +1,6 @@
+const bankData = [{"id":5,"trans_date":"2019-09-29T23:00:00Z","trans_type":"","account_number":6517160,"trans_description":"EE LIMITED Q90065037966210656","debit_amount":93.34,"credit_amount":0,"balance":-18641.35,"category":"Utilities"},{"id":7,"trans_date":"2019-09-29T23:00:00Z","trans_type":"","account_number":6517160,"trans_description":"NATALIE SHARPE 100000000513515663 INV 06 PART 1 090129     10 29SEP19 16:59","debit_amount":1000,"credit_amount":0,"balance":-18448.01,"category":"Freelance"},{"id":8,"trans_date":"2019-09-29T23:00:00Z","trans_type":"","account_number":6517160,"trans_description":"ABBI GREEN 400000000519922109 163333     10 29SEP19 16:59","debit_amount":1011.88,"credit_amount":0,"balance":-17448.01,"category":"Wages"},{"id":9,"trans_date":"2019-09-29T23:00:00Z","trans_type":"","account_number":6517160,"trans_description":"GEORGIA LUTTON 100000000513515497 404763     10 29SEP19 16:59","debit_amount":1313.3,"credit_amount":0,"balance":-16436.13,"category":"Wages"},{"id":10,"trans_date":"2019-09-29T23:00:00Z","trans_type":"","account_number":6517160,"trans_description":"MISS L HALL 600000000514863884 110814     10 29SEP19 16:59","debit_amount":942.78,"credit_amount":0,"balance":-15122.83,"category":"Wages"}]
+
+let transDate =  new Date(bankData[0].trans_date)
+
+
+console.log(transDate.getMonth())
