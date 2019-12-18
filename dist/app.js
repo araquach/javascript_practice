@@ -105,11 +105,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      byMonth: [],
-      monthBank: [],
       bankData: [{
         "id": 5,
         "trans_date": "2019-09-29T23:00:00Z",
@@ -12584,8 +12585,10 @@ __webpack_require__.r(__webpack_exports__);
     monthFilter: function monthFilter() {
       var _this = this;
 
+      var byMonth = [];
+
       var _loop = function _loop(i) {
-        _this.byMonth.push(_this.bankData.filter(function (d) {
+        byMonth.push(_this.bankData.filter(function (d) {
           return new Date(d.trans_date).getMonth() === i;
         }));
       };
@@ -12593,14 +12596,20 @@ __webpack_require__.r(__webpack_exports__);
       for (var i = 0; i < 12; i++) {
         _loop(i);
       }
+
+      return byMonth;
     },
     monthTotal: function monthTotal() {
+      var total = [];
+
       for (var i = 0; i < 12; i++) {
         var initialVal = 0;
-        this.monthBank.push(this.byMonth[i].reduce(function (acc, current) {
+        total.push(this.monthFilter[i].reduce(function (acc, current) {
           return acc + current.debit_amount;
         }, initialVal));
       }
+
+      return total;
     }
   }
 });
@@ -13091,10 +13100,18 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("table", [
+    _c("table", { staticClass: "table is-narrow" }, [
       _c(
         "tr",
-        _vm._l(_vm.monthBank, function(data, index) {
+        _vm._l(_vm.monthTotal, function(data, index) {
+          return _c("td", [_vm._v(_vm._s(index))])
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c(
+        "tr",
+        _vm._l(_vm.monthTotal, function(data, index) {
           return _c("td", [_vm._v(_vm._s(_vm._f("toCurrency")(data)))])
         }),
         0
