@@ -111,6 +111,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      balance: [{
+        category: "clothing",
+        amount: "100"
+      }, {
+        category: "groceries",
+        amount: "200"
+      }, {
+        category: "clothing",
+        amount: "97.34"
+      }, {
+        category: "food",
+        amount: "97.34"
+      }, {
+        category: "clothing",
+        amount: "97.34"
+      }, {
+        category: "food",
+        amount: "97.34"
+      }, {
+        category: "groceries",
+        amount: "97.34"
+      }],
       bankData: [{
         "id": 5,
         "trans_date": "2019-09-29T23:00:00Z",
@@ -12610,6 +12632,26 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return total;
+    },
+    combinedCategories: function combinedCategories() {
+      var res = {};
+      this.balance.forEach(function (el) {
+        res[el.category] = res[el.category] ? res[el.category] += +el.amount : +el.amount;
+      });
+      return Object.keys(res).map(function (el) {
+        return {
+          category: el,
+          amount: res[el]
+        };
+      });
+      return res;
+    },
+    newMonthTotal: function newMonthTotal() {
+      var res = {};
+      this.bankData.forEach(function (el) {
+        res[el.trans_date] = res[el.trans_date] ? res[el.trans_date] += +el.debit_amount : +el.debit_amount;
+      });
+      return res;
     }
   }
 });
@@ -30058,8 +30100,8 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/adam-macbook/GoSites/practice/javascript_practice/src/app.js */"./src/app.js");
-module.exports = __webpack_require__(/*! /Users/adam-macbook/GoSites/practice/javascript_practice/src/app.scss */"./src/app.scss");
+__webpack_require__(/*! /Users/imac-work/GoSites/practice/javascript_practice/src/app.js */"./src/app.js");
+module.exports = __webpack_require__(/*! /Users/imac-work/GoSites/practice/javascript_practice/src/app.scss */"./src/app.scss");
 
 
 /***/ })
