@@ -1,11 +1,17 @@
-import Vue from 'vue'
-import App from './App.vue'
+import moment from 'moment'
 
-Vue.use(require('vue-moment'))
+const futureDate = moment().add(14, 'days')
 
-Vue.filter("toCurrency",  amount => "£" + Number(amount).toLocaleString())
+let selectedDate = moment('2020-02-16')
 
-new Vue({
-    el: '#app',
-    render: h => h(App)
-})
+let prebooked = function isPrebooked(future, selected) {
+    if (future >= selected) {
+        console.log("You can have it!")
+    } else {
+        console.log("You can't have it")
+    }
+}
+
+prebooked(futureDate, selectedDate)
+
+console.log(futureDate, selectedDate)
