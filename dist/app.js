@@ -17736,19 +17736,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
 
-var futureDate = moment__WEBPACK_IMPORTED_MODULE_0___default()().add(14, 'days');
-var selectedDate = moment__WEBPACK_IMPORTED_MODULE_0___default()('2020-02-16');
+var start = moment__WEBPACK_IMPORTED_MODULE_0___default()('2020-02-12');
+var end = moment__WEBPACK_IMPORTED_MODULE_0___default()('2020-03-29'); //calculate only Saturday
 
-var prebooked = function isPrebooked(future, selected) {
-  if (future >= selected) {
-    console.log("You can have it!");
-  } else {
-    console.log("You can't have it");
+var dailyInfo = [false, false, false, false, false, false, true];
+var totalDays = 0;
+dailyInfo.forEach(function (info, index) {
+  if (info === true) {
+    var current = start.clone();
+
+    if (current.isoWeekday() <= index) {
+      current = current.isoWeekday(index);
+    } else {
+      current.add(1, 'weeks').isoWeekday(index);
+    }
+
+    while (current.isSameOrBefore(end)) {
+      current.day(7 + index);
+      totalDays += 1;
+    }
   }
-};
-
-prebooked(futureDate, selectedDate);
-console.log(futureDate, selectedDate);
+});
+console.log(totalDays);
 
 /***/ }),
 
@@ -17770,8 +17779,8 @@ console.log(futureDate, selectedDate);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/adam-home/GoSites/practice/javascript_practice/src/app.js */"./src/app.js");
-module.exports = __webpack_require__(/*! /Users/adam-home/GoSites/practice/javascript_practice/src/app.scss */"./src/app.scss");
+__webpack_require__(/*! /Users/adam-macbook/GoSites/practice/javascript_practice/src/app.js */"./src/app.js");
+module.exports = __webpack_require__(/*! /Users/adam-macbook/GoSites/practice/javascript_practice/src/app.scss */"./src/app.scss");
 
 
 /***/ })

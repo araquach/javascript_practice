@@ -1,17 +1,25 @@
 import moment from 'moment'
 
-const futureDate = moment().add(14, 'days')
+const start = moment('2020-02-12')
+const end = moment('2020-03-29')
+//calculate only Saturday
+const dailyInfo = [false, false, false, false, false, false, true]
+let totalDays = 0;
 
-let selectedDate = moment('2020-02-16')
-
-let prebooked = function isPrebooked(future, selected) {
-    if (future >= selected) {
-        console.log("You can have it!")
-    } else {
-        console.log("You can't have it")
+dailyInfo.forEach((info, index) => {
+    if (info === true) {
+        let current = start.clone();
+        if (current.isoWeekday() <= index) {
+            current = current.isoWeekday(index);
+        } else {
+            current.add(1, 'weeks').isoWeekday(index);
+        }
+        while (current.isSameOrBefore(end)) {
+            current.day(7 + index);
+            totalDays += 1;
+        }
     }
-}
+})
 
-prebooked(futureDate, selectedDate)
+console.log(totalDays)
 
-console.log(futureDate, selectedDate)
